@@ -1,0 +1,46 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo6 
+{
+	
+		public static void main(String[] args) 
+
+		{
+			//sample program to use navigate, refresh, backward and forward, gettitle and get url method.
+			
+			 System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+				
+				WebDriver driver= new ChromeDriver();
+				
+				driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+				
+				driver.get("https://www.facebook.com/");
+				
+				driver.navigate().to("https://www.youtube.com/watch?v=TCAO95AmyXc");
+				
+				driver.navigate().refresh();
+				
+				
+				driver.navigate().back();
+				
+				driver.navigate().refresh();
+				
+				driver.navigate().forward();
+				
+				String title=driver.getTitle();
+				
+				System.out.println("Title of the page is"+title);
+				
+				String currentURL=driver.getCurrentUrl();
+				
+				System.out.println("currentURL of the page is"+currentURL);
+				
+				driver.quit();
+				
+		}
+		}
