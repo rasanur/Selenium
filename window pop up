@@ -1,0 +1,44 @@
+package Selenium;
+
+import java.util.Set;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test13 
+{
+	
+	//sample program to use window handles and also print and get the count of child windows
+	
+	//this program is for child browser pop up
+public static void main(String[] args) 
+{
+	System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+	
+	WebDriver driver= new ChromeDriver();
+	
+	driver.get("https://www.naukri.com/");
+
+	driver.manage().window().maximize();
+
+	  Set<String> allWH = driver.getWindowHandles();              
+
+	int count = driver.getWindowHandles().size();
+
+	System.out.println(count);
+
+	for(String allw:allWH)
+	{
+		System.out.println(allw);
+		
+		driver.switchTo().window(allw);
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		driver.close();
+	}
+
+
+}
+
+}
