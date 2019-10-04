@@ -1,0 +1,39 @@
+package Selenium;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo4 
+{
+public static void main(String[] args) throws InterruptedException 
+
+{
+	//sample program to set dimension and position.
+    System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+	
+	WebDriver driver= new ChromeDriver();
+	
+	driver.get("https://www.facebook.com/");
+	
+	Thread.sleep(3000);
+	
+	Dimension d1=new Dimension(100,30);
+	
+    driver.manage().window().setSize(d1);
+    
+    Thread.sleep(3000);
+    
+    Point p1=new Point(50,20);
+    
+    driver.manage().window().setPosition(p1);
+    
+    Thread.sleep(3000);
+    
+    driver.manage().window().maximize();
+    
+    driver.quit();
+    	
+}
+}
