@@ -1,0 +1,33 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test12 
+{
+//sample program for hidden division pop up(we cant move but we can inspect-ex-date to select for trip)
+	
+	public static void main(String[] args) throws InterruptedException 
+	{
+		System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+		
+		WebDriver driver= new ChromeDriver();
+
+		
+		driver.get("https://www.cleartrip.com/");
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+		driver.findElement(By.id("DepartDate")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//span[.='April']/../../..//a[.='26']")).click();
+		
+		driver.close();
+
+	}
+}
