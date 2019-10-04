@@ -19,3 +19,62 @@ public void testsample1()
 	Reporter.log("test result",false);
 }
 }
+//2nd program
+package TestNG;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+
+public class Sample2 
+
+/*sample program to know how TestNG works on priority bases(if we 
+	haven't mentioned priority it is consider as default and its 0 priority)*/
+/*negative priority execute first then default priority then assigned priority executes*/
+
+{
+@Test(priority=1)
+public void TestDemo()
+{
+	Reporter.log("Hello",true);
+}
+
+@Test
+public void TestDemo1()
+{
+	Reporter.log("Hi", false);
+
+}
+
+
+@Test(priority=3)
+public void TestDemo2()
+{
+	Reporter.log("How are you",true);
+}
+
+@Test(priority=2)
+public void TestDemo3()
+{
+	Reporter.log("I am Good",false);
+}
+
+@Test
+public void Vivo()
+{
+	Reporter.log("vivo phone camera is ver bad",true);
+}
+
+@Test(priority=-2)
+public void Redmi()
+{
+	Reporter.log("I love redmi", false);
+}
+
+@Test(priority=-1)
+public void Laptop()
+{
+	Reporter.log("Very helpful", true);
+}
+
+}
