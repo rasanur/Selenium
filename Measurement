@@ -1,0 +1,45 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1 
+{
+	
+	//sample program to get width , height , x and y axis and font size of the web page.
+	
+	public static void main(String[] args) 
+	{
+
+System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+	
+	WebDriver driver= new ChromeDriver();
+	
+	driver.navigate().to("https://facebook.com");
+	
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+	WebElement fn=driver.findElement(By.xpath("//input[@id='u_0_m']"));
+	
+	Point widthheight=fn.getLocation();
+	
+	System.out.println(widthheight);
+	
+	Dimension xy=fn.getSize();
+	
+	System.out.println(xy);
+	
+   String fs=fn.getCssValue("font-size");	
+   
+   System.out.println(fs);
+   
+   driver.quit();
+}
+	
+}
