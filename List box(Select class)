@@ -1,0 +1,52 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test5 
+{
+
+	public static void main(String[] args) 
+	
+	{
+		//we will handle list box using parameterized select class(text,index or value)
+		
+System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+		
+		WebDriver driver= new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/");
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		WebElement month = driver.findElement(By.id("month"));
+		
+		Select select=new Select(month);
+		
+		select.selectByVisibleText("Feb");
+		
+		select.selectByValue("2");
+		
+		select.selectByIndex(2);
+		
+		WebElement year = driver.findElement(By.xpath("//select[@id='year']"));
+		
+		Select select1=new Select(year);
+		
+		select1.selectByValue("1991");
+		
+		WebElement date = driver.findElement(By.id("day"));
+		
+		Select select2=new Select(date);
+		
+		select2.selectByValue("1");
+		
+		driver.close();	
+	}
+	
+}
