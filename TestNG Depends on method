@@ -1,0 +1,31 @@
+package TestNG;
+
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+public class Sample3 
+
+//sample program for DependsOnMethod
+{
+
+	@Test
+	public void createAccount()
+	{
+		Reporter.log("Created account", true);
+	}
+	
+	@Test
+	public void signInAccount()
+	{
+		Reporter.log("User is not signed in", false);
+		Assert.assertEquals("abc","xyz");
+	}
+	
+	@Test(dependsOnMethods= {"signInAccount"})
+	public void SignOut()
+	{
+		Reporter.log("User logout", true);
+	}
+
+}
