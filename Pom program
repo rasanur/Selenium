@@ -1,0 +1,42 @@
+package Selenium;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+
+public class Demo7 
+{
+//sample program for POM (which is called in script class)
+	@FindBy(id="email")
+	private WebElement un;
+	
+	@FindBy(id="pass")
+	private WebElement pw;
+	
+	@FindBy(id="u_0_b")
+	private WebElement login;
+	
+
+	public Demo7(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);
+	}
+	
+	public void SetUsername(String username)
+	{
+		un.sendKeys(username);
+	}
+	
+	public void SetPassword(String password)
+	{
+		pw.sendKeys(password);
+		
+	}
+	
+	public void clicklogin()
+	{
+		login.click();
+	}
+}
