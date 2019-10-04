@@ -1,0 +1,56 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Test8 
+{
+	
+	//sample program to copy and paste into new text box using actions class.
+	
+public static void main(String[] args) throws InterruptedException 
+{
+System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+	
+	WebDriver driver= new ChromeDriver();
+	
+	driver.get("https://www.facebook.com/");
+	
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+	WebElement un = driver.findElement(By.id("email"));
+	
+	Thread.sleep(3000);
+	
+	un.sendKeys("Rashmi");
+	
+	Actions a1=new Actions(driver);
+	
+	a1.doubleClick(un).perform();
+	
+	Thread.sleep(3000);
+	
+	a1.sendKeys(Keys.chord(Keys.CONTROL+"c")).perform();
+	
+	Thread.sleep(3000);
+	
+	WebElement pw = driver.findElement(By.id("pass"));
+	
+	Thread.sleep(3000);
+	
+	a1.moveToElement(pw).click().perform();
+	
+	Thread.sleep(3000);
+	
+	a1.sendKeys(Keys.chord(Keys.CONTROL+"v")).perform();
+	
+	driver.quit();
+}
+
+}
