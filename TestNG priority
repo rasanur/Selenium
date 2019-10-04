@@ -1,0 +1,21 @@
+package TestNG;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+public class Sample 
+{
+
+//sample program for TestNG to give priority.
+@Test(priority=1)
+
+public void testSample()
+{
+	Reporter.log("test result", true);
+}
+@Test(priority=2)
+public void testsample1()
+{
+	Reporter.log("test result",false);
+}
+}
