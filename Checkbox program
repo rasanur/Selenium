@@ -1,0 +1,42 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo1 
+{
+//sample program to use isDisplayed() and isEnabled() method.
+	
+	public static void main(String[] args) throws InterruptedException 
+	{
+	
+System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+	
+	WebDriver driver= new ChromeDriver();
+	
+	driver.navigate().to("https://facebook.com");
+	
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+	WebElement sex=driver.findElement(By.id("u_0_6"));
+	
+	if(sex.isDisplayed())
+	{
+		sex.click();
+		
+		System.out.println("Clicked on female button");
+	}
+	else
+	{
+		System.out.println("It is not enabled");
+	}
+	
+	driver.close();	
+	
+}
+
+}
