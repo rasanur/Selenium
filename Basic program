@@ -1,0 +1,30 @@
+package Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo 
+{
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		//sample program to enter url and close
+		System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		Thread.sleep(3000);
+		driver.findElement(By.id("email")).sendKeys("rashmissavanur@gmail.com");
+		Thread.sleep(3000);
+		driver.findElement(By.id("pass")).sendKeys("Happy@me!");
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+		
+	}
+}
