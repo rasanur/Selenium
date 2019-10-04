@@ -1,0 +1,39 @@
+package Selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo2 
+{
+
+	public static void main(String[] args) 
+	{
+		
+		//example for using implicitly wait method
+		System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		driver.get("https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+		
+		driver.findElement(By.name("identifier")).sendKeys("rashmissavanur@gmail.com");
+		
+		driver.findElement(By.xpath("//span[text()='Next']")).click();
+		
+		driver.findElement(By.name("password")).sendKeys("Happy@me!");
+		
+		driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
+		
+		driver.findElement(By.xpath("//span[@class='gb_xa gbii']")).click();
+		
+		driver.findElement(By.xpath("//a[@id='gb_71']")).click();
+		
+		driver.quit();
+		
+	}
+	
+}
