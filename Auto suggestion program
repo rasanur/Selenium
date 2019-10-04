@@ -1,0 +1,46 @@
+package Selenium;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo5 
+{
+//program to get auto suggestion and select last auto suggestions and to print all auto suggestions
+	
+	public static void main(String[] args) 
+	{
+		
+	System.setProperty("webdriver.chrome.driver","E:/Selenium/chromedriver_win32/chromedriver.exe");
+	
+	WebDriver driver= new ChromeDriver();
+	
+	driver.get("https://www.google.com/");
+	
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+	WebElement as=driver.findElement(By.name("q"));
+	
+	as.sendKeys("Selenium");
+	
+	List<WebElement> autosugg=driver.findElements(By.xpath("//div[contains(.,'selenium')]"));
+	
+	int num=autosugg.size();
+	
+	System.out.println(num);
+	
+	for(int i=0;i<num;i++)
+	{
+		String link=autosugg.get(i).getText();
+		
+		System.out.println(link);
+	}
+	autosugg.get(num-1).click();
+	
+	driver.quit();
+}
+}
