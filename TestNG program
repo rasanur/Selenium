@@ -1,0 +1,92 @@
+package TestNG;
+
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Sample5 
+{
+	@BeforeSuite
+	public void bs()
+		{
+	Reporter.log("@BeforeSuite",true);
+		}
+	@AfterSuite
+	public void as()
+	{
+	Reporter.log("@AfterSuite",true);
+	}
+	@BeforeTest
+	public void bt()
+	{
+	Reporter.log("@BeforeTest",true);
+	}
+	@AfterTest
+	public void at()
+	{
+	Reporter.log("@AfterTest",true);
+	}
+	@BeforeClass
+	public void bc()
+	{
+	Reporter.log("@BeforeClass",true);
+	}
+	@AfterClass
+	public void ac()
+	{
+	Reporter.log("@AfterClass",true);
+	}
+	@BeforeMethod
+	public void bm()
+	{
+	Reporter.log("@BeforeMethod",true);
+	}
+	
+	@AfterMethod
+	public void am()
+	{
+	Reporter.log("@AfterMethod",true);
+	}
+	
+	@Test
+	public void Account()
+	{
+		Reporter.log("Verify address",true);
+	}
+	
+	@Test
+	public void UserName1()
+	{
+		Reporter.log("Verify username", true);
+		Assert.assertEquals("abc", "xyz");
+	}
+	
+	@Test(dependsOnMethods={"UserName1"})
+	public void Password()
+	{
+		Reporter.log("Verify password", false);
+		
+	}
+	
+	@Test(priority=1)
+	public void RegisterUser()
+	{
+		Reporter.log("Registered account", true);
+	}
+	
+	@Test
+	public void Logout()
+	{
+		Reporter.log("Verify logout", true);
+	}
+	
+}
+
